@@ -89,7 +89,7 @@ public class ScannerFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Сканеры");
+        jLabel1.setText("扫描仪");
 
         DefaultListModel<String> s = new DefaultListModel<>();
         scanners.setModel(s);
@@ -102,14 +102,14 @@ public class ScannerFrame extends javax.swing.JFrame {
         }
         jScrollPane1.setViewportView(scanners);
 
-        selectScanner.setText("Выбрать сканер");
+        selectScanner.setText("选择扫描仪");
         selectScanner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectScannerActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Источник");
+        jLabel2.setText("来源");
 
         docSource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Auto document feeder", "Flatbed" }));
         docSource.setEnabled(false);
@@ -119,9 +119,9 @@ public class ScannerFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Режим цвета");
+        jLabel3.setText("颜色选择");
 
-        colorMode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Черно-белый", "Градации серого", "Цветной" }));
+        colorMode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "黑-白", "灰", "彩色" }));
         colorMode.setEnabled(false);
         colorMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +134,7 @@ public class ScannerFrame extends javax.swing.JFrame {
         dpi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "50", "100", "150", "200", "300", "400", "500", "600" }));
         dpi.setEnabled(false);
 
-        startScanning.setText("Сканировать");
+        startScanning.setText("扫描");
         startScanning.setEnabled(false);
         startScanning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +145,7 @@ public class ScannerFrame extends javax.swing.JFrame {
         jScrollPane2.setBorder(BorderFactory.createBevelBorder(0));
         jScrollPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        cancelButton.setText("Отмена");
+        cancelButton.setText("取消");
         cancelButton.setEnabled(false);
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,14 +153,14 @@ public class ScannerFrame extends javax.swing.JFrame {
             }
         });
 
-        getCapList.setText("Прочитать таблицу настроек");
+        getCapList.setText("读取设置表");
         getCapList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 getCapListActionPerformed(evt);
             }
         });
 
-        scanWithDefaultUI.setText("Не использовать системный UI");
+        scanWithDefaultUI.setText("不使用系统UI");
         scanWithDefaultUI.setEnabled(false);
         scanWithDefaultUI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,17 +265,17 @@ public class ScannerFrame extends javax.swing.JFrame {
                 tc = ts.getCapability(Twain.ICAP_PIXELTYPE);
                 s = new DefaultComboBoxModel<>();
                 for (Object t : tc.getItems()) {
-                    String c = "Неизвестно";
+                    String c = "位置";
                     int y = (Integer) t;
                     switch (y) {
                         case 0:
-                            c = "Черно-белый";
+                            c = "黑-白";
                             break;
                         case 1:
-                            c = "Градации серого";
+                            c = "灰";
                             break;
                         case 2:
-                            c = "Цветной";
+                            c = "彩色";
                             break;
                     }
                     s.addElement(String.format("%s", c));
